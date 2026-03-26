@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b3c0f3q8p44fq"]
 
+[ext_resource type="Script" uid="uid://dtcu67e424uan" path="res://Scripts/player.gd" id="1_3smsa"]
 [ext_resource type="Texture2D" uid="uid://dpm83ww4j253a" path="res://Graphics/peter_babinkton_001.png" id="1_fkybt"]
 [ext_resource type="Texture2D" uid="uid://c2xx88t73ic8a" path="res://Graphics/peter_babinkton_002.png" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://b27ib1nt72wnv" path="res://Graphics/peter_babinkton_003.png" id="3_3smsa"]
@@ -37,8 +38,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkybt"]
+size = Vector2(20, 43)
+
 [node name="Player" type="RigidBody2D" unique_id=1782488622]
+script = ExtResource("1_3smsa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=690183384]
 sprite_frames = SubResource("SpriteFrames_tx1dd")
 animation = &"walk"
+frame = 3
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415114792]
+visible = false
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_fkybt")
