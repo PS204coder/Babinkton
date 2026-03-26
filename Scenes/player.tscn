@@ -1,3 +1,44 @@
 [gd_scene format=3 uid="uid://b3c0f3q8p44fq"]
 
+[ext_resource type="Texture2D" uid="uid://dpm83ww4j253a" path="res://Graphics/peter_babinkton_001.png" id="1_fkybt"]
+[ext_resource type="Texture2D" uid="uid://c2xx88t73ic8a" path="res://Graphics/peter_babinkton_002.png" id="2_x3wgy"]
+[ext_resource type="Texture2D" uid="uid://b27ib1nt72wnv" path="res://Graphics/peter_babinkton_003.png" id="3_3smsa"]
+[ext_resource type="Texture2D" uid="uid://bqqx1koturrnr" path="res://Graphics/peter_babinkton_004.png" id="4_8erm5"]
+[ext_resource type="Texture2D" uid="uid://b0xfh6v67qkkk" path="res://Graphics/peter_babinkton_005.png" id="5_f1ek2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tx1dd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fkybt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_x3wgy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3smsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8erm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f1ek2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_8erm5")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
 [node name="Player" type="RigidBody2D" unique_id=1782488622]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=690183384]
+sprite_frames = SubResource("SpriteFrames_tx1dd")
+animation = &"walk"
