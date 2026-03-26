@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://4yw85rkej7lj"]
+
+[ext_resource type="PackedScene" uid="uid://b3c0f3q8p44fq" path="res://Scenes/player.tscn" id="1_lc1oi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3qbn"]
+size = Vector2(281, 20)
+
+[node name="Test" type="Node2D" unique_id=1144091316]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1796103876]
+zoom = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=888424416]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=729649856]
+position = Vector2(0.5, 57)
+shape = SubResource("RectangleShape2D_o3qbn")
+
+[node name="Player" parent="StaticBody2D" unique_id=1782488622 instance=ExtResource("1_lc1oi")]
+position = Vector2(1, 2)
