@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b3c0f3q8p44fq"]
+
+[node name="Player" type="RigidBody2D" unique_id=1782488622]

@@ -20,4 +20,8 @@ config/icon="res://icon.svg"
 
 [rendering]
 
+<<<<<<< HEAD
+=======
+textures/canvas_textures/default_texture_filter=3
+>>>>>>> 488af933da4d53c435f43aca35ea5b6333fc8782
 rendering_device/driver.windows="d3d12"
