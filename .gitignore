@@ -1,0 +1,6 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.exe
+*.msi
+raylib_installer_v5.5.exe
