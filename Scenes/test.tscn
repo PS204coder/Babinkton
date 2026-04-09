@@ -1,20 +1,29 @@
 [gd_scene format=3 uid="uid://4yw85rkej7lj"]
 
+[ext_resource type="Texture2D" uid="uid://dm84w4nprye4x" path="res://Graphics/court_v1.png" id="1_8od7v"]
 [ext_resource type="PackedScene" uid="uid://b3c0f3q8p44fq" path="res://Scenes/player.tscn" id="1_lc1oi"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3qbn"]
-size = Vector2(281, 20)
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8od7v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qc4db"]
+size = Vector2(258, 34)
 
 [node name="Test" type="Node2D" unique_id=1144091316]
+
+[node name="CourtV1" type="Sprite2D" parent="." unique_id=1098303301]
+position = Vector2(0, 35.999996)
+scale = Vector2(2, 2)
+texture = ExtResource("1_8od7v")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1796103876]
 zoom = Vector2(4, 4)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=888424416]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=729649856]
-position = Vector2(0.5, 57)
-shape = SubResource("RectangleShape2D_o3qbn")
-
 [node name="Player" parent="." unique_id=1782488622 instance=ExtResource("1_lc1oi")]
-position = Vector2(1, 2)
+position = Vector2(-80, 19)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1037446955]
+physics_material_override = SubResource("PhysicsMaterial_8od7v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1023514693]
+position = Vector2(0, 60)
+shape = SubResource("RectangleShape2D_qc4db")
