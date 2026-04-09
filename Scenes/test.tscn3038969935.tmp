@@ -30,5 +30,4 @@ position = Vector2(0, 60)
 shape = SubResource("RectangleShape2D_qc4db")
 
 [node name="Shuttle" parent="." unique_id=220463607 instance=ExtResource("3_qc4db")]
-position = Vector2(-91, -56)
-rotation = 1.2217305
+position = Vector2(-47, -26)

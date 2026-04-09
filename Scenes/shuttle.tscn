@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bct83n8ruy371"]
+
+[ext_resource type="Texture2D" uid="uid://ui6jsk6i6uiy" path="res://Graphics/shuttlecock.png" id="1_1pfi6"]
+[ext_resource type="Script" uid="uid://cqalfgrvdd0ey" path="res://Scenes/shuttle.gd" id="1_vsyg2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pfi6"]
+size = Vector2(8, 9)
+
+[node name="Shuttle" type="RigidBody2D" unique_id=220463607]
+collision_layer = 2
+collision_mask = 2
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, -4)
+script = ExtResource("1_vsyg2")
+
+[node name="Shuttlecock" type="Sprite2D" parent="." unique_id=1315663346]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1pfi6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2061586838]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1pfi6")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=580253465]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=750440865]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1pfi6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

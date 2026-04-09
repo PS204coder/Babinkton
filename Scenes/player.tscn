@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://c2xx88t73ic8a" path="res://Graphics/peter_babinkton_002.png" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://b27ib1nt72wnv" path="res://Graphics/peter_babinkton_003.png" id="3_3smsa"]
 [ext_resource type="Texture2D" uid="uid://bqqx1koturrnr" path="res://Graphics/peter_babinkton_004.png" id="4_8erm5"]
+[ext_resource type="Texture2D" uid="uid://5jfjd7wo5i62" path="res://Graphics/peter_babinkton_006.png" id="4_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://b0xfh6v67qkkk" path="res://Graphics/peter_babinkton_005.png" id="5_f1ek2"]
+[ext_resource type="Texture2D" uid="uid://vof2ak0xao6v" path="res://Graphics/peter_babinkton_007.png" id="5_tx1dd"]
+[ext_resource type="Script" uid="uid://c7ib06tc3dks3" path="res://Scenes/racket.gd" id="9_f1ek2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tx1dd"]
 animations = [{
@@ -18,6 +21,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_f1ek2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tx1dd")
+}],
+"loop": true,
+"name": &"serve",
 "speed": 5.0
 }, {
 "frames": [{
@@ -39,17 +53,29 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkybt"]
-size = Vector2(20, 44)
+size = Vector2(21, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tx1dd"]
+size = Vector2(18.25, 24)
 
 [node name="Player" type="CharacterBody2D" unique_id=2115970228]
 script = ExtResource("1_3smsa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=690183384]
 sprite_frames = SubResource("SpriteFrames_tx1dd")
-animation = &"walk"
-frame = 3
+animation = &"idle"
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415114792]
-position = Vector2(0, 2)
+position = Vector2(3.5, 2)
 shape = SubResource("RectangleShape2D_fkybt")
+
+[node name="Racket" type="Area2D" parent="." unique_id=267290628]
+position = Vector2(3.5, 2)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("9_f1ek2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Racket" unique_id=1060524381]
+position = Vector2(-13.375, 10)
+shape = SubResource("RectangleShape2D_tx1dd")
