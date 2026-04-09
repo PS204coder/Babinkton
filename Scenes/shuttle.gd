@@ -13,5 +13,6 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	angular_velocity = rotation_degrees
-	linear_velocity.y = -500
+	linear_velocity.y = -300 + Global.player_velocity.y/3
+	linear_velocity.x = Global.player_velocity.x/2
+	look_at((position + linear_velocity).normalized())

@@ -56,7 +56,7 @@ animations = [{
 size = Vector2(21, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tx1dd"]
-size = Vector2(18.25, 24)
+size = Vector2(13, 17)
 
 [node name="Player" type="CharacterBody2D" unique_id=2115970228]
 script = ExtResource("1_3smsa")
@@ -71,11 +71,12 @@ position = Vector2(3.5, 2)
 shape = SubResource("RectangleShape2D_fkybt")
 
 [node name="Racket" type="Area2D" parent="." unique_id=267290628]
-position = Vector2(3.5, 2)
+position = Vector2(3.39, 2)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("9_f1ek2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Racket" unique_id=1060524381]
-position = Vector2(-13.375, 10)
+position = Vector2(-17, 6.5)
 shape = SubResource("RectangleShape2D_tx1dd")
+debug_color = Color(0.16606635, 0.64439195, 1.92523e-07, 0.41960785)

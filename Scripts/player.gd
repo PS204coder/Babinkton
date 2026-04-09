@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @onready var animation: AnimatedSprite2D = $AnimatedSprite2D
-@onready var racket: Area2D = $Racket
+@onready var collision_racket: CollisionShape2D = $Racket/CollisionShape2D
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -12,6 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	#Sending variables to global code
+	Global.player_velocity = velocity
 	#Basic Walking
 	if Input.is_action_pressed("right"):
 		velocity.x = 60
@@ -31,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	elif Input.is_action_just_pressed("dash right"):
 		velocity.x += 120
 	
-	#"Gravity"
+	#"Gravity"-17 6.5
 	if is_on_floor() != true:
 		if velocity.y < 0:
 			velocity.y += 5
@@ -40,8 +43,10 @@ func _physics_process(delta: float) -> void:
 	#Fliping the animation
 	if velocity.x > 0:
 		animation.flip_h = true
+		collision_racket.position.x = 10
 	if velocity.x < 0:
 		animation.flip_h = false
+		collision_racket.position.x = -17
 
 
 	move_and_slide()
