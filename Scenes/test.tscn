@@ -3,11 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://dm84w4nprye4x" path="res://Graphics/court_v1.png" id="1_8od7v"]
 [ext_resource type="PackedScene" uid="uid://b3c0f3q8p44fq" path="res://Scenes/player.tscn" id="1_lc1oi"]
 [ext_resource type="PackedScene" uid="uid://bct83n8ruy371" path="res://Scenes/shuttle.tscn" id="3_qc4db"]
+[ext_resource type="Texture2D" uid="uid://bt8whbmy4oeg1" path="res://Graphics/siatka_babinkton.png" id="4_ys1qc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8od7v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qc4db"]
 size = Vector2(258, 34)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35xla"]
+size = Vector2(1, 36)
 
 [node name="Test" type="Node2D" unique_id=1144091316]
 
@@ -33,3 +37,14 @@ shape = SubResource("RectangleShape2D_qc4db")
 
 [node name="Shuttle" parent="." unique_id=220463607 instance=ExtResource("3_qc4db")]
 position = Vector2(-91, -56)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2004576454]
+position = Vector2(0, 25)
+scale = Vector2(2, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=800853369]
+shape = SubResource("RectangleShape2D_35xla")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1319788485]
+position = Vector2(-1.4901161e-08, 0)
+texture = ExtResource("4_ys1qc")
