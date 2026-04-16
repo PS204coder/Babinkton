@@ -2,8 +2,21 @@
 
 [ext_resource type="Texture2D" uid="uid://dm84w4nprye4x" path="res://Graphics/court_v1.png" id="1_8od7v"]
 [ext_resource type="PackedScene" uid="uid://b3c0f3q8p44fq" path="res://Scenes/player.tscn" id="1_lc1oi"]
+[ext_resource type="Texture2D" uid="uid://camvbtx3pe3pj" path="res://Graphics/point_counter_babinkton.png" id="2_35xla"]
 [ext_resource type="PackedScene" uid="uid://bct83n8ruy371" path="res://Scenes/shuttle.tscn" id="3_qc4db"]
 [ext_resource type="Texture2D" uid="uid://bt8whbmy4oeg1" path="res://Graphics/siatka_babinkton.png" id="4_ys1qc"]
+[ext_resource type="Texture2D" uid="uid://culoh28qsmdgk" path="res://Graphics/point_numbers_babinkton_012.png" id="6_2ocox"]
+[ext_resource type="Texture2D" uid="uid://un38b6wuruax" path="res://Graphics/point_numbers_babinkton_001.png" id="7_kuf18"]
+[ext_resource type="Texture2D" uid="uid://bmfcjmov18wo" path="res://Graphics/point_numbers_babinkton_002.png" id="8_q8sys"]
+[ext_resource type="Texture2D" uid="uid://biugjtt7m61v8" path="res://Graphics/point_numbers_babinkton_003.png" id="9_n0wup"]
+[ext_resource type="Texture2D" uid="uid://ba4gfee3thhk" path="res://Graphics/point_numbers_babinkton_004.png" id="10_wojap"]
+[ext_resource type="Texture2D" uid="uid://cttngwx78wpxv" path="res://Graphics/point_numbers_babinkton_005.png" id="11_copon"]
+[ext_resource type="Texture2D" uid="uid://wrwb6uaaawju" path="res://Graphics/point_numbers_babinkton_006.png" id="12_wjyqs"]
+[ext_resource type="Texture2D" uid="uid://ifdrmjb45h71" path="res://Graphics/point_numbers_babinkton_007.png" id="13_kxtw2"]
+[ext_resource type="Texture2D" uid="uid://cb3wn4pk3sajx" path="res://Graphics/point_numbers_babinkton_008.png" id="14_rhq6j"]
+[ext_resource type="Texture2D" uid="uid://c4jorbkessfkw" path="res://Graphics/point_numbers_babinkton_009.png" id="15_pgu05"]
+[ext_resource type="Texture2D" uid="uid://npfrvbt63ic0" path="res://Graphics/point_numbers_babinkton_010.png" id="16_3nkef"]
+[ext_resource type="Texture2D" uid="uid://c5a5x7yr2c5wi" path="res://Graphics/point_numbers_babinkton_011.png" id="17_vpf1r"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8od7v"]
 
@@ -12,6 +25,94 @@ size = Vector2(258, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_35xla"]
 size = Vector2(1, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m64o6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_2ocox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kuf18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q8sys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_n0wup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wojap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_copon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wjyqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kxtw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rhq6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pgu05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3nkef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vpf1r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_55gk5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_2ocox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_kuf18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_q8sys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_n0wup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wojap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_copon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wjyqs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kxtw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rhq6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pgu05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3nkef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vpf1r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Test" type="Node2D" unique_id=1144091316]
 
@@ -22,6 +123,11 @@ texture = ExtResource("1_8od7v")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1796103876]
 zoom = Vector2(4, 4)
+
+[node name="point_counter_display" type="Sprite2D" parent="." unique_id=71975690]
+position = Vector2(0, -63.000004)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_35xla")
 
 [node name="Player" parent="." unique_id=1782488622 instance=ExtResource("1_lc1oi")]
 position = Vector2(-80, 19)
@@ -45,6 +151,16 @@ scale = Vector2(2, 1)
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D2" unique_id=800853369]
 shape = SubResource("RectangleShape2D_35xla")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1319788485]
+[node name="siatka" type="Sprite2D" parent="StaticBody2D2" unique_id=1319788485]
 position = Vector2(-1.4901161e-08, 0)
 texture = ExtResource("4_ys1qc")
+
+[node name="points_player" type="AnimatedSprite2D" parent="." unique_id=1762376540]
+position = Vector2(-12, -63)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_m64o6")
+
+[node name="points_opponent" type="AnimatedSprite2D" parent="." unique_id=1562895896]
+position = Vector2(12, -63)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_55gk5")
