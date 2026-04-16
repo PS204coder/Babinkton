@@ -25,15 +25,17 @@ func _physics_process(delta: float) -> void:
 	Global.player_velocity = velocity
 	#Basic Walking
 	if Input.is_action_just_pressed("shoot") and Global.player_shoot == true:
-		animation.play("serve")
+		animation.play("attack")
 		Global.player_shoot = false
 		timer.start()
-	if Input.is_action_pressed("right"):
+	elif Input.is_action_pressed("right"):
 		velocity.x = 60
-		animation.play("walk")
-	elif Input.is_action_pressed("left"):
+		if animation.is_playing() == false:
+			animation.play("walk")
+	elif Input.is_action_pressed("left") :
 		velocity.x = -60
-		animation.play("walk")
+		if animation.is_playing() == false:
+			animation.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, 3)
 		if animation.is_playing() == false:
@@ -58,10 +60,18 @@ func _physics_process(delta: float) -> void:
 		animation.flip_h = true
 		if animation.animation == "idle":
 			collision_racket.position.x = 10
+			collision_racket.scale = Vector2(1.1, 1.1)
+		elif animation.animation == "attack":
+			collision_racket.position = Vector2(0, 0)
+			collision_racket.scale = Vector2(2.5, 2.5)
 	if velocity.x < 0:
 		animation.flip_h = false
 		if animation.animation == "idle":
 			collision_racket.position.x = -17
+			collision_racket.scale = Vector2(1.1, 1.1)
+		elif animation.animation == "attack":
+			collision_racket.position = Vector2(0, 0)
+			collision_racket.scale = Vector2(2.5, 2.5)
 
 	move_and_slide()
 

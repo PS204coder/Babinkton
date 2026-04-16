@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dtcu67e424uan" path="res://Scripts/player.gd" id="1_3smsa"]
 [ext_resource type="Texture2D" uid="uid://dpm83ww4j253a" path="res://Graphics/peter_babinkton_001.png" id="1_fkybt"]
+[ext_resource type="Texture2D" uid="uid://bxydi0lv3tjvh" path="res://Graphics/peter_babinkton_008.png" id="2_pu2lt"]
 [ext_resource type="Texture2D" uid="uid://c2xx88t73ic8a" path="res://Graphics/peter_babinkton_002.png" id="2_x3wgy"]
 [ext_resource type="Texture2D" uid="uid://b27ib1nt72wnv" path="res://Graphics/peter_babinkton_003.png" id="3_3smsa"]
+[ext_resource type="Texture2D" uid="uid://dy7f5hoeexqjn" path="res://Graphics/peter_babinkton_009.png" id="3_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://ccqvjgfiw16lr" path="res://Graphics/peter_babinkton_010.png" id="4_7dp3o"]
 [ext_resource type="Texture2D" uid="uid://bqqx1koturrnr" path="res://Graphics/peter_babinkton_004.png" id="4_8erm5"]
 [ext_resource type="Texture2D" uid="uid://5jfjd7wo5i62" path="res://Graphics/peter_babinkton_006.png" id="4_f1ek2"]
 [ext_resource type="Texture2D" uid="uid://b0xfh6v67qkkk" path="res://Graphics/peter_babinkton_005.png" id="5_f1ek2"]
@@ -12,6 +15,20 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tx1dd"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pu2lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ukyrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7dp3o")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_fkybt")
@@ -63,7 +80,9 @@ script = ExtResource("1_3smsa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=690183384]
 sprite_frames = SubResource("SpriteFrames_tx1dd")
-animation = &"serve"
+animation = &"attack"
+frame = 1
+frame_progress = 0.118973665
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415114792]
@@ -78,6 +97,7 @@ script = ExtResource("9_f1ek2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Racket" unique_id=1060524381]
 position = Vector2(-17, 6.5)
+scale = Vector2(1.1, 1.1)
 shape = SubResource("RectangleShape2D_tx1dd")
 debug_color = Color(0.16606635, 0.64439195, 1.92523e-07, 0.41960785)
 
