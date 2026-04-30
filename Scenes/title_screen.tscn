@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://cys23a8oi6d31"]
+
+[ext_resource type="Script" uid="uid://0387j2wfd0u" path="res://Scripts/title_screen.gd" id="1_4gxqj"]
+[ext_resource type="Texture2D" uid="uid://cgr6eglv2svt0" path="res://Graphics/menu_text.png" id="1_klylv"]
+[ext_resource type="Texture2D" uid="uid://bfstgnk42nl4y" path="res://Graphics/viktor.png" id="2_p3fck"]
+
+[node name="title_screen" type="Node2D" unique_id=1675356131]
+script = ExtResource("1_4gxqj")
+
+[node name="menu" type="NinePatchRect" parent="." unique_id=1489457275]
+offset_left = 457.00003
+offset_top = 285.0
+offset_right = 556.44446
+offset_bottom = 411.11115
+scale = Vector2(1.8, 1.8)
+texture = ExtResource("1_klylv")
+patch_margin_left = 5
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 5
+
+[node name="start_button" type="Button" parent="menu" unique_id=396361872]
+layout_mode = 0
+offset_left = 34.999985
+offset_top = 13.333335
+offset_right = 64.999985
+offset_bottom = 34.333336
+theme_override_font_sizes/font_size = 9
+text = "Start
+"
+
+[node name="options_button" type="Button" parent="menu" unique_id=1849707757]
+layout_mode = 0
+offset_left = 26.66665
+offset_top = 48.888893
+offset_right = 69.66665
+offset_bottom = 69.88889
+theme_override_font_sizes/font_size = 9
+text = "Options
+"
+
+[node name="quit_button" type="Button" parent="menu" unique_id=33891703]
+layout_mode = 0
+offset_left = 37.777763
+offset_top = 87.22224
+offset_right = 64.77776
+offset_bottom = 108.22224
+theme_override_font_sizes/font_size = 9
+text = "Quit
+
+"
+
+[node name="title" type="Label" parent="." unique_id=1443075015]
+offset_left = 312.0
+offset_top = 89.0
+offset_right = 801.0
+offset_bottom = 223.0
+theme_override_font_sizes/font_size = 98
+text = "Babinkton"
+
+[node name="viktor_babinkton" type="Sprite2D" parent="." unique_id=143166733]
+z_index = -4
+position = Vector2(599, 411)
+scale = Vector2(0.59131366, 0.4042373)
+texture = ExtResource("2_p3fck")
+
+[connection signal="pressed" from="menu/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="menu/options_button" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="menu/quit_button" to="." method="_on_quit_button_pressed"]
