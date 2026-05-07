@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="babinkton"
-run/main_scene="uid://4yw85rkej7lj"
+run/main_scene="uid://cys23a8oi6d31"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*uid://e20ru10hnvth"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 
