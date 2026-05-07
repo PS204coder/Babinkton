@@ -189,7 +189,7 @@ offset_left = -44.0
 offset_top = -60.000004
 offset_right = 6.000004
 offset_bottom = -0.55555344
-scale = Vector2(1.8, 1.8)
+scale = Vector2(2, 2)
 texture = ExtResource("20_n0wup")
 patch_margin_left = 5
 patch_margin_top = 5
@@ -199,6 +199,7 @@ script = ExtResource("21_wojap")
 
 [node name="quit_button" type="Button" parent="menu" unique_id=350715050]
 process_mode = 3
+texture_filter = 1
 layout_mode = 0
 offset_left = 13.888889
 offset_top = 38.88889
@@ -210,6 +211,7 @@ text = "Quit"
 
 [node name="options_button" type="Button" parent="menu" unique_id=1310018291]
 process_mode = 3
+texture_filter = 1
 layout_mode = 0
 offset_left = 9.444445
 offset_top = 19.444447

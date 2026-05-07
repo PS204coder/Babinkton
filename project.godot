@@ -23,6 +23,10 @@ Global="*uid://e20ru10hnvth"
 
 window/stretch/mode="canvas_items"
 
+[gui]
+
+theme/default_font_multichannel_signed_distance_field=true
+
 [input]
 
 right={
@@ -67,5 +71,7 @@ shoot={
 
 [rendering]
 
-textures/canvas_textures/default_texture_filter=3
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+textures/lossless_compression/force_png=true
+textures/default_filters/anisotropic_filtering_level=3
