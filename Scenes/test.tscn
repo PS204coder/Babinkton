@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c7chu35wnxdmo" path="res://Graphics/menu_button_babinkton.png" id="18_kuf18"]
 [ext_resource type="Texture2D" uid="uid://cgr6eglv2svt0" path="res://Graphics/menu_text.png" id="20_n0wup"]
 [ext_resource type="Script" uid="uid://blojwuce4551e" path="res://Scripts/menu.gd" id="21_wojap"]
+[ext_resource type="Texture2D" uid="uid://ydioh5lcxcx" path="res://Graphics/bg_babinkton.png" id="22_copon"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8od7v"]
 
@@ -239,6 +240,11 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderRight" unique_id=503716159]
 position = Vector2(139, -7)
 shape = SubResource("RectangleShape2D_wojap")
+
+[node name="background" type="Sprite2D" parent="." unique_id=323368406]
+z_index = -1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("22_copon")
 
 [connection signal="open_menu" from="." to="menu" method="_on_test_open_menu"]
 [connection signal="pressed" from="menu_button" to="." method="_on_menu_button_pressed"]
