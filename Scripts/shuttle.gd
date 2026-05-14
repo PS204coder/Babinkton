@@ -15,8 +15,8 @@ func _process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if Global.player_shoot == false:
-		linear_velocity.x = attack_speed * Global.player_facing_dir
-	if Global.player_shoot == true:
-		linear_velocity.y = -100 + Global.player_velocity.y/3
+		linear_velocity.x += attack_speed * Global.player_facing_dir
+	elif Global.player_shoot == true:
+		linear_velocity.y = -130 + Global.player_velocity.y/3
 		linear_velocity.x = Global.player_velocity.x/3
 		look_at((position + linear_velocity).normalized())

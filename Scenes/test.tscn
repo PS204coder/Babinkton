@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://npfrvbt63ic0" path="res://Graphics/point_numbers_babinkton_010.png" id="16_3nkef"]
 [ext_resource type="Texture2D" uid="uid://c5a5x7yr2c5wi" path="res://Graphics/point_numbers_babinkton_011.png" id="17_vpf1r"]
 [ext_resource type="Texture2D" uid="uid://c7chu35wnxdmo" path="res://Graphics/menu_button_babinkton.png" id="18_kuf18"]
+[ext_resource type="Script" uid="uid://dob1et35m8hiy" path="res://Scenes/points_player.gd" id="19_kxtw2"]
+[ext_resource type="Script" uid="uid://c6hjdoqviqdh5" path="res://Scenes/points_opponent.gd" id="19_wjyqs"]
 [ext_resource type="Texture2D" uid="uid://cgr6eglv2svt0" path="res://Graphics/menu_text.png" id="20_n0wup"]
 [ext_resource type="Script" uid="uid://blojwuce4551e" path="res://Scripts/menu.gd" id="21_wojap"]
 [ext_resource type="Texture2D" uid="uid://ydioh5lcxcx" path="res://Graphics/bg_babinkton.png" id="22_copon"]
@@ -75,6 +77,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kxtw2"]
+size = Vector2(85.33333, 20)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_55gk5"]
 animations = [{
 "frames": [{
@@ -119,10 +124,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhq6j"]
+size = Vector2(85.333336, 20)
+
 [sub_resource type="SystemFont" id="SystemFont_n0wup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wojap"]
-size = Vector2(20, 176)
+size = Vector2(20, 259)
 
 [node name="Test" type="Node2D" unique_id=1144091316]
 script = ExtResource("1_q8sys")
@@ -172,12 +180,32 @@ z_index = 1
 position = Vector2(-12, -63)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_m64o6")
+script = ExtResource("19_kxtw2")
+
+[node name="Opponent_Court" type="Area2D" parent="points_player" unique_id=1041045776]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="points_player/Opponent_Court" unique_id=258179382]
+position = Vector2(51.333336, 71.333336)
+shape = SubResource("RectangleShape2D_kxtw2")
+debug_color = Color(0.83671343, 0.001254865, 0.93182856, 0.41960785)
 
 [node name="points_opponent" type="AnimatedSprite2D" parent="." unique_id=1562895896]
 z_index = 2
 position = Vector2(12, -63)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_55gk5")
+script = ExtResource("19_wjyqs")
+
+[node name="Player_court" type="Area2D" parent="points_opponent" unique_id=1117790681]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="points_opponent/Player_court" unique_id=437191247]
+position = Vector2(-51.333336, 71.333336)
+shape = SubResource("RectangleShape2D_rhq6j")
+debug_color = Color(0.8800272, 0.00036733388, 0.8245078, 0.41960785)
 
 [node name="menu_button" type="TextureButton" parent="." unique_id=1853323221]
 offset_left = 124.0
@@ -230,6 +258,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderLeft" unique_id=1561632456]
+visible = false
 position = Vector2(-139, -6)
 shape = SubResource("RectangleShape2D_wojap")
 
@@ -238,6 +267,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BorderRight" unique_id=503716159]
+visible = false
 position = Vector2(139, -7)
 shape = SubResource("RectangleShape2D_wojap")
 
@@ -245,8 +275,21 @@ shape = SubResource("RectangleShape2D_wojap")
 z_index = -1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("22_copon")
+metadata/_edit_lock_ = true
+
+[node name="BorderUp" type="StaticBody2D" parent="." unique_id=1461605160]
+rotation = 1.5707964
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BorderUp" unique_id=1902990543]
+visible = false
+position = Vector2(-84, -0.4999961)
+shape = SubResource("RectangleShape2D_wojap")
 
 [connection signal="open_menu" from="." to="menu" method="_on_test_open_menu"]
+[connection signal="body_entered" from="points_player/Opponent_Court" to="points_player" method="_on_opponent_court_body_entered"]
+[connection signal="body_entered" from="points_opponent/Player_court" to="points_opponent" method="_on_player_court_body_entered"]
 [connection signal="pressed" from="menu_button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="menu/quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="menu/options_button" to="." method="_on_quit_button_pressed"]
