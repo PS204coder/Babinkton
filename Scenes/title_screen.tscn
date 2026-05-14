@@ -3,6 +3,12 @@
 [ext_resource type="Script" uid="uid://0387j2wfd0u" path="res://Scripts/title_screen.gd" id="1_4gxqj"]
 [ext_resource type="Texture2D" uid="uid://cgr6eglv2svt0" path="res://Graphics/menu_text.png" id="1_klylv"]
 [ext_resource type="Texture2D" uid="uid://bfstgnk42nl4y" path="res://Graphics/viktor.png" id="2_p3fck"]
+[ext_resource type="Texture2D" uid="uid://d2478iynxtda7" path="res://Graphics/quit_button_babinkton_003.png" id="3_55kwv"]
+[ext_resource type="Texture2D" uid="uid://chp15gys3e2vx" path="res://Graphics/quit_button_babinkton_004.png" id="4_12m1t"]
+[ext_resource type="Texture2D" uid="uid://dl5ytcbtmbvrg" path="res://Graphics/options_button_003.png" id="5_6vd4x"]
+[ext_resource type="Texture2D" uid="uid://c3w4d6ga4ltua" path="res://Graphics/options_button_004.png" id="6_n82rj"]
+[ext_resource type="Texture2D" uid="uid://dvk10ytploqby" path="res://Graphics/quit_button_babinkton_001.png" id="7_0061g"]
+[ext_resource type="Texture2D" uid="uid://dwk7aqnnhdmib" path="res://Graphics/quit_button_babinkton_002.png" id="8_8mikk"]
 
 [node name="title_screen" type="Node2D" unique_id=1675356131]
 script = ExtResource("1_4gxqj")
@@ -19,36 +25,32 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="start_button" type="Button" parent="menu" unique_id=396361872]
+[node name="start_button" type="TextureButton" parent="menu" unique_id=881684001]
 layout_mode = 0
-offset_left = 34.999985
-offset_top = 13.333335
-offset_right = 64.999985
-offset_bottom = 34.333336
-theme_override_font_sizes/font_size = 9
-text = "Start
-"
+offset_left = 23.333319
+offset_top = 10.555557
+offset_right = 71.33332
+offset_bottom = 42.555557
+texture_normal = ExtResource("3_55kwv")
+texture_pressed = ExtResource("4_12m1t")
 
-[node name="options_button" type="Button" parent="menu" unique_id=1849707757]
+[node name="options_button" type="TextureButton" parent="menu" unique_id=1966865231]
 layout_mode = 0
-offset_left = 26.66665
-offset_top = 48.888893
-offset_right = 69.66665
-offset_bottom = 69.88889
-theme_override_font_sizes/font_size = 9
-text = "Options
-"
+offset_left = 23.333317
+offset_top = 50.000004
+offset_right = 71.33331
+offset_bottom = 82.0
+texture_normal = ExtResource("5_6vd4x")
+texture_pressed = ExtResource("6_n82rj")
 
-[node name="quit_button" type="Button" parent="menu" unique_id=33891703]
+[node name="quit_button" type="TextureButton" parent="menu" unique_id=537470797]
 layout_mode = 0
-offset_left = 37.777763
-offset_top = 87.22224
-offset_right = 64.77776
-offset_bottom = 108.22224
-theme_override_font_sizes/font_size = 9
-text = "Quit
-
-"
+offset_left = 23.333319
+offset_top = 88.33335
+offset_right = 71.33332
+offset_bottom = 120.33335
+texture_normal = ExtResource("7_0061g")
+texture_pressed = ExtResource("8_8mikk")
 
 [node name="title" type="Label" parent="." unique_id=1443075015]
 offset_left = 312.0
@@ -63,6 +65,7 @@ z_index = -4
 position = Vector2(599, 411)
 scale = Vector2(0.59131366, 0.4042373)
 texture = ExtResource("2_p3fck")
+metadata/_edit_lock_ = true
 
 [connection signal="pressed" from="menu/start_button" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="menu/options_button" to="." method="_on_options_button_pressed"]

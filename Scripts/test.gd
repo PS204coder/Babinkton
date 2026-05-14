@@ -1,6 +1,7 @@
 extends Node2D
 
 signal open_menu
+@onready var menu: NinePatchRect = $menu
 
 
 
@@ -10,3 +11,7 @@ func _on_menu_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_continue_button_pressed() -> void:
+	menu.hide()

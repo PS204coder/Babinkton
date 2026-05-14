@@ -24,6 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://cgr6eglv2svt0" path="res://Graphics/menu_text.png" id="20_n0wup"]
 [ext_resource type="Script" uid="uid://blojwuce4551e" path="res://Scripts/menu.gd" id="21_wojap"]
 [ext_resource type="Texture2D" uid="uid://ydioh5lcxcx" path="res://Graphics/bg_babinkton.png" id="22_copon"]
+[ext_resource type="Texture2D" uid="uid://dvk10ytploqby" path="res://Graphics/quit_button_babinkton_001.png" id="24_55gk5"]
+[ext_resource type="Texture2D" uid="uid://dwk7aqnnhdmib" path="res://Graphics/quit_button_babinkton_002.png" id="25_dnpbo"]
+[ext_resource type="Texture2D" uid="uid://dl5ytcbtmbvrg" path="res://Graphics/options_button_003.png" id="26_pkh07"]
+[ext_resource type="Texture2D" uid="uid://c3w4d6ga4ltua" path="res://Graphics/options_button_004.png" id="27_2jg6l"]
+[ext_resource type="Texture2D" uid="uid://ce0pmb4guru2n" path="res://Graphics/continue_button_003.png" id="28_nlfrn"]
+[ext_resource type="Texture2D" uid="uid://c7pi503xc0kou" path="res://Graphics/continue_button_004.png" id="29_j44qy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8od7v"]
 
@@ -127,8 +133,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rhq6j"]
 size = Vector2(85.333336, 20)
 
-[sub_resource type="SystemFont" id="SystemFont_n0wup"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wojap"]
 size = Vector2(20, 259)
 
@@ -215,12 +219,10 @@ offset_bottom = -62.0
 texture_normal = ExtResource("18_kuf18")
 
 [node name="menu" type="NinePatchRect" parent="." unique_id=26408806]
-visible = false
 z_index = 15
-offset_left = -44.0
-offset_top = -60.000004
-offset_right = 6.000004
-offset_bottom = -0.55555344
+offset_left = -50.0
+offset_top = -60.0
+offset_bottom = -0.5555496
 scale = Vector2(2, 2)
 texture = ExtResource("20_n0wup")
 patch_margin_left = 5
@@ -229,29 +231,39 @@ patch_margin_right = 5
 patch_margin_bottom = 5
 script = ExtResource("21_wojap")
 
-[node name="quit_button" type="Button" parent="menu" unique_id=350715050]
+[node name="quit_button" type="TextureButton" parent="menu" unique_id=673125398]
 process_mode = 3
 texture_filter = 1
 layout_mode = 0
-offset_left = 13.888889
-offset_top = 38.88889
-offset_right = 34.88889
-offset_bottom = 55.88889
-theme_override_fonts/font = SubResource("SystemFont_n0wup")
-theme_override_font_sizes/font_size = 6
-text = "Quit"
+offset_left = 13.0
+offset_top = 39.5
+offset_right = 61.0
+offset_bottom = 71.5
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("24_55gk5")
+texture_pressed = ExtResource("25_dnpbo")
 
-[node name="options_button" type="Button" parent="menu" unique_id=1310018291]
+[node name="options_button" type="TextureButton" parent="menu" unique_id=1608900486]
 process_mode = 3
 texture_filter = 1
 layout_mode = 0
-offset_left = 9.444445
-offset_top = 19.444447
-offset_right = 40.444443
-offset_bottom = 36.444447
-theme_override_fonts/font = SubResource("SystemFont_n0wup")
-theme_override_font_sizes/font_size = 6
-text = "Options"
+offset_left = 13.0
+offset_top = 21.5
+offset_right = 61.0
+offset_bottom = 53.5
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("26_pkh07")
+texture_pressed = ExtResource("27_2jg6l")
+
+[node name="continue_button" type="TextureButton" parent="menu" unique_id=880096776]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 4.0
+offset_right = 61.0
+offset_bottom = 44.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("28_nlfrn")
+texture_pressed = ExtResource("29_j44qy")
 
 [node name="BorderLeft" type="StaticBody2D" parent="." unique_id=1231137636]
 collision_layer = 3
@@ -293,3 +305,4 @@ shape = SubResource("RectangleShape2D_wojap")
 [connection signal="pressed" from="menu_button" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="menu/quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="menu/options_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="menu/continue_button" to="." method="_on_continue_button_pressed"]
