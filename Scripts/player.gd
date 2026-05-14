@@ -5,8 +5,6 @@ extends CharacterBody2D
 @onready var timer: Timer = $Timer
 
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -25,10 +23,13 @@ func _physics_process(delta: float) -> void:
 	Global.player_velocity = velocity
 	#Basic Walking
 	if Input.is_action_just_pressed("shoot") and Global.player_shoot == true:
+		$Racket/attack.set_deferred("disabled", false)
 		animation.play("attack")
 		Global.player_shoot = false
 		timer.start()
-	elif Input.is_action_pressed("right"):
+
+		
+	if Input.is_action_pressed("right"):
 		velocity.x = 60
 		if animation.is_playing() == false:
 			animation.play("walk")
@@ -58,23 +59,13 @@ func _physics_process(delta: float) -> void:
 	#Fliping the animation
 	if velocity.x > 0:
 		animation.flip_h = true
-		if animation.animation == "idle":
-			collision_racket.position.x = 10
-			collision_racket.scale = Vector2(1.1, 1.1)
-		elif animation.animation == "attack":
-			collision_racket.position = Vector2(0, 0)
-			collision_racket.scale = Vector2(2.5, 2.5)
 	if velocity.x < 0:
 		animation.flip_h = false
-		if animation.animation == "idle":
-			collision_racket.position.x = -17
-			collision_racket.scale = Vector2(1.1, 1.1)
-		elif animation.animation == "attack":
-			collision_racket.position = Vector2(0, 0)
-			collision_racket.scale = Vector2(2.5, 2.5)
+
 
 	move_and_slide()
 
 
 func _on_timer_timeout() -> void:
 	Global.player_shoot = true
+	$Racket/attack.set_deferred("disabled", true)

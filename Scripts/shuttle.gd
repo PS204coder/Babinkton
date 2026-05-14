@@ -8,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(linear_velocity)
+	print(linear_velocity, Global.player_shoot)
 	
 
 
@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if Global.player_shoot == false:
 		linear_velocity.x = attack_speed * Global.player_facing_dir
-	else:
-		linear_velocity.y = -300 + Global.player_velocity.y/3
-		linear_velocity.x = Global.player_velocity.x/2
+	if Global.player_shoot == true:
+		linear_velocity.y = -100 + Global.player_velocity.y/3
+		linear_velocity.x = Global.player_velocity.x/3
 		look_at((position + linear_velocity).normalized())
